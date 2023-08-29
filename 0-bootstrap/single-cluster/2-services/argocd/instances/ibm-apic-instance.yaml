@@ -25,12 +25,12 @@ spec:
       values: |
         ibm-apic-instance:
           ibmapicinstance:
-            name: apic-cluster
+            name: apic-argo-cluster
             spec:
               license:
                 accept: true
-                use: production
-                license: L-RJON-C7QFWS
+                use: nonproduction
+                license: L-KZXM-S7SNCU
               version: 10.0.4.0-ifix1-54
-              profile: n3xc14.m48
-              storageClassName: ibmc-block-gold
+              profile: n3xc16.m48
+              storageClassName: rook-ceph-block
