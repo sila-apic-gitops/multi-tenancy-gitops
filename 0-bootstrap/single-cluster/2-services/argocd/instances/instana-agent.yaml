@@ -37,7 +37,7 @@ spec:
             # key: null
             # agent.downloadKey is key, sometimes known ass "sales key", that allows you to download,
             # software from Instana.
-            # downloadKey: null
+            downloadKey: cVVNaFlKeGpTdjZ1WmgyU3lxVEVudwo=
 
             # Rather than specifying the agent key and optionally the download key, you can "bring your
             # own secret" creating it in the namespace in which you install the `instana-agent` and
@@ -144,7 +144,7 @@ spec:
               com.instana.plugin.mongodb:
                 enabled: false
               com.instana.plugin.ace:
-                enabled: true
+                enabled: false
                 poll_rate: 20
                 NodesOrServers: # Multiple Integration node instances or multiple standalone Integration Servers can be specified
                   create-customer-details-rest:  # specify the Integration node name (required)
