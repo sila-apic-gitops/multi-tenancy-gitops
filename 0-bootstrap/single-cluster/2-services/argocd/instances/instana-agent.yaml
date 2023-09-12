@@ -170,7 +170,7 @@ spec:
               # leaderElector.image.name is the name of the container image of the leader elector.
               name: instana/leader-elector
               # leaderElector.image.digest is the digest (a.k.a. Image ID) of the leader elector container image; if specified, it has priority over leaderElector.image.digest, which will be ignored.
-              #digest:
+              digest: sha256:8f971da85a4daea19ef7f73597669b0509e708276e3ca6f575ff02df749cf651
               # leaderElector.image.tag is the tag name of the agent container image; if leaderElector.image.digest is specified, this property is ignored.
               tag: latest
             port: 42655
