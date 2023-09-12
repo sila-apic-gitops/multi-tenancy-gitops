@@ -63,13 +63,13 @@ spec:
 
             image: "image-registry.openshift-image-registry.svc:5000/instana-agent/instana-agent"
               # agent.image.name is the name of the container image of the Instana agent.
-              #name: instana/agent
+              name: instana/agent
               # agent.image.digest is the digest (a.k.a. Image ID) of the agent container image; if specified, it has priority over agent.image.tag, which will be ignored.
               #digest: sha256:b4b42dabbbb62f193a33857d2e87df5e6e4a1decc02ea53f94af1171698a6989
               # agent.image.tag is the tag name of the agent container image; if agent.image.digest is specified, this property is ignored.
               #tag: 0.5.18
               # agent.image.pullPolicy specifies when to pull the image container.
-              #pullPolicy: Always
+              pullPolicy: Always
               # agent.image.pullSecrets allows you to override the default pull secret that is created when agent.image.name starts with "containers.instana.io"
               # Setting agent.image.pullSecrets prevents the creation of the default "containers-instana-io" secret.
               # pullSecrets:
@@ -168,7 +168,7 @@ spec:
           leaderElector:
             image: "image-registry.openshift-image-registry.svc:5000/instana-agent/leader-elector"
               # leaderElector.image.name is the name of the container image of the leader elector.
-              #name: instana/leader-elector
+              name: instana/leader-elector
               # leaderElector.image.digest is the digest (a.k.a. Image ID) of the leader elector container image; if specified, it has priority over leaderElector.image.digest, which will be ignored.
               #digest: sha256:8f971da85a4daea19ef7f73597669b0509e708276e3ca6f575ff02df749cf651
               # leaderElector.image.tag is the tag name of the agent container image; if leaderElector.image.digest is specified, this property is ignored.
