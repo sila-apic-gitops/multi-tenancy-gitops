@@ -38,3 +38,4 @@ spec:
     						testAndMonitor:
       						aiEnabled: true
       						autoTestEnabled: true
+
