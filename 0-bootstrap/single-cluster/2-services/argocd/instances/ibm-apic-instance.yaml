@@ -35,6 +35,6 @@ spec:
               profile: n1xc8.m32
               storageClassName: rook-ceph-block
               testAndMonitor:
-	        aiEnabled: true
+                aiEnabled: true
                 autoTestEnabled: true
 
