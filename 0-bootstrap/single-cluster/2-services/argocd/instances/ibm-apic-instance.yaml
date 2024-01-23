@@ -1,4 +1,4 @@
-apiVersion: argoproj.io/v1alpha1
+apiVersion: argoproj.io/v1beta1
 kind: Application
 metadata:
   name: ibm-apic-instance
@@ -31,7 +31,7 @@ spec:
                 accept: true
                 use: nonproduction
                 license: L-MMBZ-295QZQ
-              version: 10.0.7.0-5560
+              version: 10.0.5.5-6227
               profile: n1xc8.m32
               storageClassName: rook-ceph-block
               testAndMonitor:
