@@ -30,10 +30,10 @@ spec:
               license:
                 accept: true
                 use: nonproduction
-                license: L-MMBZ-295QZQ
+                license: L-VQYA-YNM22H
               version: 10.0.5.5-6227
-              profile: n1xc8.m32
-              storageClassName: rook-ceph-block
+              profile: n1xc7.m48
+              storageClassName: ocs-storagecluster-ceph-rbd
               testAndMonitor:
                 aiEnabled: true
                 autoTestEnabled: true
