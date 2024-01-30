@@ -1,0 +1,321 @@
+apiVersion: v1
+items:
+- apiVersion: management.apiconnect.ibm.com/v1beta1
+  kind: ManagementCluster
+  metadata:
+    annotations:
+      apiconnect-operator/hash: 1d29cf5946aa2f589663e1499a9e0c635ffdcd1b236b9a335ba51cfc0d8682bd
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"apiconnect.ibm.com/v1beta1","kind":"APIConnectCluster","metadata":{"annotations":{},"labels":{"argo.cntk/instance":"ibm-apic-instance"},"name":"apic-argo-cluster","namespace":"tools"},"spec":{"license":{"accept":true,"license":"L-VQYA-YNM22H","use":"nonproduction"},"profile":"n1xc7.m48","storageClassName":"ocs-storagecluster-ceph-rbd","testAndMonitor":{"aiEnabled":true,"autoTestEnabled":true},"version":"10.0.5.5-6227"}}
+    creationTimestamp: "2024-01-29T22:01:26Z"
+    finalizers:
+    - uninstall-pgo
+    generation: 6
+    name: apic-argo-cluster-mgmt
+    namespace: tools
+    ownerReferences:
+    - apiVersion: apiconnect.ibm.com/v1beta1
+      blockOwnerDeletion: true
+      controller: true
+      kind: APIConnectCluster
+      name: apic-argo-cluster
+      uid: 076c7ce9-f395-478c-9bc2-a5c72516231b
+    resourceVersion: "36368759"
+    uid: d7d41422-a5fc-46a4-9b30-0a070fe36615
+  spec:
+    adminUser:
+      secretName: apic-argo--f52519dd-mgmt-admin-pass
+    aiDataService:
+      dataServiceEndpoint:
+        annotations:
+          cert-manager.io/issuer: apic-argo--f52519dd-ingress-issuer
+    analytics:
+      client: {}
+      ingestion:
+        secretName: apic-argo--f52519dd-a7s-ing-client
+    apiManagerEndpoint:
+      annotations:
+        cert-manager.io/issuer: apic-argo--f52519dd-ingress-issuer
+        haproxy.router.openshift.io/timeout: 240s
+      hosts:
+      - name: apic-argo--aa6bbbf2-api-manager-tools.apps.sila.cp.fyre.ibm.com
+        secretName: apic-argo--aa6bbbf2-api-manager
+    certManagerIssuer:
+      kind: Issuer
+      name: apic-argo--f52519dd-self-signed
+    cloudManagerEndpoint:
+      annotations:
+        cert-manager.io/issuer: apic-argo--f52519dd-ingress-issuer
+        haproxy.router.openshift.io/timeout: 240s
+      hosts:
+      - name: apic-argo--aa6bbbf2-admin-tools.apps.sila.cp.fyre.ibm.com
+        secretName: apic-argo--aa6bbbf2-admin
+    consumerAPIEndpoint:
+      annotations:
+        cert-manager.io/issuer: apic-argo--f52519dd-ingress-issuer
+        haproxy.router.openshift.io/timeout: 240s
+      hosts:
+      - name: apic-argo--aa6bbbf2-consumer-api-tools.apps.sila.cp.fyre.ibm.com
+        secretName: apic-argo--aa6bbbf2-consumer-api
+    databaseBackup:
+      repoRetentionFull: 14
+      restartDB:
+        accept: false
+      schedule: 0 1 * * *
+    databaseVolumeClaimTemplate:
+      storageClassName: ocs-storagecluster-ceph-rbd
+    dbArchiveVolumeClaimTemplate:
+      storageClassName: ocs-storagecluster-ceph-rbd
+    dbBackupVolumeClaimTemplate:
+      storageClassName: ocs-storagecluster-ceph-rbd
+    endpointTypes:
+    - APIs
+    eventGateway:
+      client:
+        secretName: apic-argo--f52519dd-event-gateway-management-client
+    gateway:
+      client:
+        secretName: apic-argo--f52519dd-gw-dr-client
+    imagePullSecrets:
+    - ibm-entitlement-key
+    imageRegistry: cp.icr.io/cp/apic
+    labels:
+      app.kubernetes.io/part-of: apic-argo-cluster
+    license:
+      accept: true
+      license: L-VQYA-YNM22H
+      metric: VIRTUAL_PROCESSOR_CORE
+      use: nonproduction
+    messageQueueVolumeClaimTemplate:
+      storageClassName: ocs-storagecluster-ceph-rbd
+      volumeSize: 10Gi
+    microServiceSecurity: certManager
+    originalUID: d7d41422-a5fc-46a4-9b30-0a070fe36615
+    platformAPIEndpoint:
+      annotations:
+        cert-manager.io/issuer: apic-argo--f52519dd-ingress-issuer
+        haproxy.router.openshift.io/timeout: 240s
+      hosts:
+      - name: apic-argo--aa6bbbf2-platform-api-tools.apps.sila.cp.fyre.ibm.com
+        secretName: apic-argo--aa6bbbf2-platform-api
+    portal:
+      admin:
+        secretName: apic-argo--f52519dd-ptl-adm-client
+    profile: n1xc2.m16
+    siteName: aa6bbbf2
+    testAndMonitor:
+      hubEndpoint:
+        annotations:
+          cert-manager.io/issuer: apic-argo--f52519dd-ingress-issuer
+      turnstileEndpoint:
+        annotations:
+          cert-manager.io/issuer: apic-argo--f52519dd-ingress-issuer
+    version: 10.0.5.5-6227
+  status:
+    atmCredentialSecret: apic-argo--aa6bbbf2-atm-cred
+    conditions:
+    - lastTransitionTime: "2024-01-30T02:23:10Z"
+      message: ""
+      reason: na
+      status: "False"
+      type: Warning
+    - lastTransitionTime: "2024-01-30T02:24:44Z"
+      message: ""
+      reason: na
+      status: "False"
+      type: Ready
+    - lastTransitionTime: "2024-01-30T16:15:45Z"
+      message: 'Not all services are ready, next pending services: taskmanager'
+      reason: na
+      status: "True"
+      type: Pending
+    - lastTransitionTime: "2024-01-29T22:01:27Z"
+      message: ""
+      reason: na
+      status: "False"
+      type: Error
+    - lastTransitionTime: "2024-01-29T22:01:27Z"
+      message: ""
+      reason: na
+      status: "False"
+      type: Failed
+    - lastTransitionTime: "2024-01-29T22:01:27Z"
+      message: ""
+      reason: na
+      status: "False"
+      type: Blocked
+    consumerToolkitCredentialSecret: apic-argo--aa6bbbf2-ccli-cred
+    consumerUICredentialSecret: apic-argo--aa6bbbf2-cui-cred
+    databaseCredentialsSecret: apic-argo--aa6bbbf2-aa6bbbf2-postgres-postgres-secret
+    dbClientSecrets:
+    - name: postgres
+      secretName: apic-argo--aa6bbbf2-db-client-postgres
+    - name: replicator
+      secretName: apic-argo--aa6bbbf2-db-client-replicator
+    - name: pgbouncer
+      secretName: apic-argo--aa6bbbf2-db-client-pgbouncer
+    - name: apicuser
+      secretName: apic-argo--aa6bbbf2-db-client-apicuser
+    - name: primaryuser
+      secretName: apic-argo--aa6bbbf2-db-client-primaryuser
+    dbServerSecret: apic-argo--aa6bbbf2-aa6bbbf2-postgres
+    designerCredentialSecret: apic-argo--aa6bbbf2-dsgr-cred
+    encryptionSecret: apic-argo--aa6bbbf2-enc-key
+    endpoints:
+    - name: apiManager
+      secretName: apic-argo--aa6bbbf2-api-manager
+      type: UI
+      uri: https://cpd-cp4i.apps.sila.cp.fyre.ibm.com/integration/apis/tools/apic-argo-cluster/manager
+    - name: admin
+      secretName: apic-argo--aa6bbbf2-admin
+      type: UI
+      uri: https://cpd-cp4i.apps.sila.cp.fyre.ibm.com/integration/apis/tools/apic-argo-cluster/admin
+    - name: platformApi
+      secretName: apic-argo--aa6bbbf2-platform-api
+      type: API
+      uri: https://cpd-cp4i.apps.sila.cp.fyre.ibm.com/integration/apis/tools/apic-argo-cluster/api
+    - name: jwksUrl
+      secretName: apic-argo--aa6bbbf2-platform-api
+      type: API
+      uri: https://cpd-cp4i.apps.sila.cp.fyre.ibm.com/integration/apis/tools/apic-argo-cluster/api/cloud/oauth2/certs
+    - name: consumerApi
+      secretName: apic-argo--aa6bbbf2-consumer-api
+      type: API
+      uri: https://cpd-cp4i.apps.sila.cp.fyre.ibm.com/integration/apis/tools/apic-argo-cluster/consumer-api
+    governanceCredentialSecret: apic-argo--aa6bbbf2-governance-cred
+    haMode: active
+    juhuCredentialSecret: apic-argo--aa6bbbf2-juhu-cred
+    lastUpgradeRecord: apic-argo--aa6bbbf2-up-mrrq4
+    message: Some services are not ready - see status condition for details
+    microServiceSecurity: certManager
+    natsTlsSecret: apic-argo--aa6bbbf2-natscluster-mgmt
+    pgBouncerServerSecret: apic-argo--aa6bbbf2-aa6bbbf2-postgres-pgbouncer
+    pgoTlsSecret: pgo.tls
+    phase: Pending
+    postgresDataStats:
+    - instanceName: apic-argo--aa6bbbf2-aa6bbbf2-postgres
+      podName: apic-argo--aa6bbbf2-aa6bbbf2-postgres-f9ff86478-gs24z
+      pvcCapacity: 120259084288
+      pvcName: apic-argo--aa6bbbf2-aa6bbbf2-postgres
+      pvcType: PostgreSQL
+      pvcUsed: 62222336
+      pvcUsedPercentage: 0
+    - instanceName: apic-argo--aa6bbbf2-aa6bbbf2-postgres
+      podName: apic-argo--aa6bbbf2-aa6bbbf2-postgres-f9ff86478-gs24z
+      pvcCapacity: 30064771072
+      pvcName: apic-argo--aa6bbbf2-aa6bbbf2-postgres-wal
+      pvcType: WAL
+      pvcUsed: 184569856
+      pvcUsedPercentage: 0
+    - instanceName: apic-argo--aa6bbbf2-aa6bbbf2-postgres-backrest-shared-repo
+      podName: apic-argo--aa6bbbf2-aa6bbbf2-postgres-backrest-shared-repoz47g6
+      pvcCapacity: 120259084288
+      pvcName: apic-argo--aa6bbbf2-aa6bbbf2-postgres-pgbr-repo
+      pvcType: pgBackRest
+      pvcUsed: 37064704
+      pvcUsedPercentage: 0
+    serviceCASecret: apic-argo--aa6bbbf2-ca
+    serviceClientSecret: apic-argo--aa6bbbf2-client
+    serviceServerSecret: apic-argo--aa6bbbf2-server
+    services:
+      analytics-proxy: apic-argo--aa6bbbf2-analytics-proxy
+      apim: apic-argo--aa6bbbf2-apim
+      apim-data-populate: ""
+      apim-schema: ""
+      client-downloads-server: apic-argo--aa6bbbf2-client-downloads-server
+      db: apic-argo--aa6bbbf2-aa6bbbf2-postgres
+      dbpool: apic-argo--aa6bbbf2-aa6bbbf2-postgres-pgbouncer
+      edb-cluster: apic-argo--aa6bbbf2-edb-cluster
+      juhu: apic-argo--aa6bbbf2-juhu
+      ldap: apic-argo--aa6bbbf2-ldap
+      lur: apic-argo--aa6bbbf2-lur
+      lur-data-populate: ""
+      lur-schema: ""
+      natscluster: apic-argo--aa6bbbf2-natscluster
+      portal-proxy: apic-argo--aa6bbbf2-portal-proxy
+      postgres-operator: postgres-operator
+      taskmanager: apic-argo--aa6bbbf2-taskmanager
+      ui: apic-argo--aa6bbbf2-ui
+      websocket-proxy: apic-argo--aa6bbbf2-websocket-proxy
+    state: 16/17
+    toolkitCredentialSecret: apic-argo--aa6bbbf2-cli-cred
+    uiCredentialSecret: apic-argo--aa6bbbf2-ui-cred
+    versions:
+      available:
+        channels:
+        - licenses:
+          - displayName: IBM API Connect Enterprise V10.0.5.5
+            link: https://ibm.biz/BdPGTL
+            name: L-VQYA-YNM22H
+          - displayName: IBM Cloud Pak for Integration - API Calls 2022.4.1
+            link: https://ibm.biz/BdPP5e
+            name: L-RJON-CJR3A7
+          - displayName: IBM API Connect Enterprise Add-on for IBM Products V10.0.5.5
+            link: https://ibm.biz/BdPGTQ
+            name: L-SLCD-D9MBTA
+          - displayName: IBM API Connect Professional V10.0.5.5
+            link: https://ibm.biz/BdPGTC
+            name: L-XSJQ-UMJP6P
+          name: "10"
+        - licenses:
+          - displayName: IBM API Connect Enterprise V10.0.5.5
+            link: https://ibm.biz/BdPGTL
+            name: L-VQYA-YNM22H
+          - displayName: IBM Cloud Pak for Integration - API Calls 2022.4.1
+            link: https://ibm.biz/BdPP5e
+            name: L-RJON-CJR3A7
+          - displayName: IBM API Connect Enterprise Add-on for IBM Products V10.0.5.5
+            link: https://ibm.biz/BdPGTQ
+            name: L-SLCD-D9MBTA
+          - displayName: IBM API Connect Professional V10.0.5.5
+            link: https://ibm.biz/BdPGTC
+            name: L-XSJQ-UMJP6P
+          name: "10.0"
+        - licenses:
+          - displayName: IBM API Connect Enterprise V10.0.5.5
+            link: https://ibm.biz/BdPGTL
+            name: L-VQYA-YNM22H
+          - displayName: IBM Cloud Pak for Integration - API Calls 2022.4.1
+            link: https://ibm.biz/BdPP5e
+            name: L-RJON-CJR3A7
+          - displayName: IBM API Connect Enterprise Add-on for IBM Products V10.0.5.5
+            link: https://ibm.biz/BdPGTQ
+            name: L-SLCD-D9MBTA
+          - displayName: IBM API Connect Professional V10.0.5.5
+            link: https://ibm.biz/BdPGTC
+            name: L-XSJQ-UMJP6P
+          name: 10.0.5
+        - licenses:
+          - displayName: IBM API Connect Enterprise V10.0.5.5
+            link: https://ibm.biz/BdPGTL
+            name: L-VQYA-YNM22H
+          - displayName: IBM Cloud Pak for Integration - API Calls 2022.4.1
+            link: https://ibm.biz/BdPP5e
+            name: L-RJON-CJR3A7
+          - displayName: IBM API Connect Enterprise Add-on for IBM Products V10.0.5.5
+            link: https://ibm.biz/BdPGTQ
+            name: L-SLCD-D9MBTA
+          - displayName: IBM API Connect Professional V10.0.5.5
+            link: https://ibm.biz/BdPGTC
+            name: L-XSJQ-UMJP6P
+          name: 10.0.5.5
+        versions:
+        - licenses:
+          - displayName: IBM API Connect Enterprise V10.0.5.5
+            link: https://ibm.biz/BdPGTL
+            name: L-VQYA-YNM22H
+          - displayName: IBM Cloud Pak for Integration - API Calls 2022.4.1
+            link: https://ibm.biz/BdPP5e
+            name: L-RJON-CJR3A7
+          - displayName: IBM API Connect Enterprise Add-on for IBM Products V10.0.5.5
+            link: https://ibm.biz/BdPGTQ
+            name: L-SLCD-D9MBTA
+          - displayName: IBM API Connect Professional V10.0.5.5
+            link: https://ibm.biz/BdPGTC
+            name: L-XSJQ-UMJP6P
+          name: 10.0.5.5-6227
+      reconciled: 10.0.5.5-6227
+    zenRoute: cpd-cp4i.apps.sila.cp.fyre.ibm.com/integration/apis/tools/apic-argo-cluster
+kind: List
+metadata:
+  resourceVersion: ""
